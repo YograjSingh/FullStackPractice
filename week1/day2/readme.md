@@ -65,3 +65,13 @@ gRPC: Developed by Google, gRPC is a high-performance, open-source universal RPC
 - 403: Authentication Issues
 - 500: Internal Server Error
 
+## Start a node server:
+npm- Node Package manager, it helps us to install and get libraries from the web.
+
+```
+npm install nodemon
+
+npx nodemon todo.js
+
+```
+
