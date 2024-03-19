@@ -41,36 +41,9 @@ app.get("/files/:fileName",function(req,res) {
         }
         res.json({"path":filepath,"content":data});
     })
-    // const fileName=path.join(__dirname,'./files/',req.params.fileName);
-    // console.log("FileName:"+fileName);
-    // var content="";
-    // var path;
-    // console.log(fileName);
-    // if(fileName.length!=0){
-    //     path="./files/"+fileName;
-        
-    //     console.log(content);
-   
-
-    // }
-    // content=fs.readFileSync(path,'utf8');
-
-    // if(content.length!=0){
-    //     res.json({
-    //         fileName,
-    //         content
-    //     })
-
-    // }else {
-    //     res.status(404).send("File is empty");
-    // }
-    
-    
-    // // res.send(content);
-    
-})
+  
 app.all('*',(req,res)=>{
     res.status(404).send("Route not found");
 })
 
-module.exports = app;
+// module.exports = app;
