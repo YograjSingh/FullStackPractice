@@ -41,3 +41,23 @@ It saves a DB call and fast of course.
 - Fetch APi fetches stuff from BackEnd.
 
 
+# Connection to Databases
+Various types of Databases:
+- Graph DBs
+- Vector DBs
+- SQL DB
+- NoSQl DB
+
+### A bit about DB
+MongoDB lets you create a database.
+In each DB, it lets you create tables(also called collections).
+In each tables, it lets you dup JSON data
+Schemaless
+Scales well and is a decent choice for most use cases.
+
+### How to connect to DB?
+1. Express lets us create an HTTP server.
+2. JSONWebTokens library lets us create JWT
+3. Mongoose lets us connect to the DB.(helps, read write to DB)
+
+

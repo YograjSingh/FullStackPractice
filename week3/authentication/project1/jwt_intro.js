@@ -39,9 +39,7 @@ function userExists(username, password) {
     // in ALL_USERS array
     
     let userExist=false;
-    console.log("Hello");
     for(let i=0;i<ALL_USERS.length;i++){
-        console.log("for");
         if(ALL_USERS[i].username==username & ALL_USERS[i].password==password){
             console.log(ALL_USERS[i].username)
             console.log(ALL_USERS[i].password)
