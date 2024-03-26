@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const jwtPassword = 'secret';
-
+const jwtPrivateKey = '123456';
+const zod=require('zod');
 
 /**
  * Generates a JWT for a given username and password.
@@ -13,10 +13,20 @@ const jwtPassword = 'secret';
  *                        Returns null if the username is not a valid email or
  *                        the password does not meet the length requirement.
  */
+
 function signJwt(username, password) {
     // Your code here
-    const jwtPublicToken=jwt.sign({username:username, password:password},jwtPassword);
-    return jwtPublicToken;
+    const emailSchema=zod.string().email();
+    const passwordSchema=zod.string().min(6);
+    const emailSchemaResponse=emailSchema.safeParse(username);
+    const passwordSchemaResponse=passwordSchema.safeParse(password);
+    if(emailSchemaResponse.success==false || passwordSchemaResponse.success==false) {
+        return null;
+     }else{
+        const jwtPublicToken=jwt.sign({username:username, password:password},jwtPrivateKey);
+        return jwtPublicToken;
+     }
+    
 }
 
 /**
@@ -29,6 +39,18 @@ function signJwt(username, password) {
  */
 function verifyJwt(token) {
     // Your code here
+    try {
+        const verified=jwt.verify(token,jwtPrivateKey);
+        
+        if(verified){
+            return true;
+        }else{
+            return false;
+        }
+        
+    } catch (error) {
+        return false;        
+    }
     
 }
 
@@ -41,8 +63,18 @@ function verifyJwt(token) {
  */
 function decodeJwt(token) {
     // Your code here
-    const decodedPayload=jwt.verify(token,jwtPassword);
-    return decodedPayload;
+    try {
+        const decodedPayload=jwt.decode(token,jwtPrivateKey);
+        if(decodedPayload){
+            return true;
+        }else{
+            return false;
+        }
+        
+    } catch (error) {
+        return false;        
+    }
+  
 }
 
 
@@ -50,5 +82,5 @@ module.exports = {
   signJwt,
   verifyJwt,
   decodeJwt,
-  jwtPassword,
+  jwtPassword: jwtPrivateKey,
 };
