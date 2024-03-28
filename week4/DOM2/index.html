@@ -12,21 +12,9 @@
             console.log(number1.value);
             const number2 = document.getElementById('number2');
             console.log(number2.value);
-            // We removed the below given logic
-            // let sum = Number(number1.value) + Number(number2.value);
-            const response=fetch("http://localhost:3000/add?n1="+1+"&n2="+2).then(
-                function (response) {
-                    console.log(response);
-                    // this is an asynchronous function because this is how fetch() function is written
-                    response.text().then(function (responseText) {
-                        console.log(responseText);
-                        document.getElementById("finalSum").innerHTML=responseText;
-                    })                    
-                }
-            );
-            console.log(response);
-            // console.log(sum);
-            // document.getElementById("finalSum").innerHTML=sum;
+            let sum = Number(number1.value) + Number(number2.value);
+            console.log(sum);
+            document.getElementById("finalSum").innerHTML=sum;
 
         }
     </script>

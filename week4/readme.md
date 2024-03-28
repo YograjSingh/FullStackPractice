@@ -18,3 +18,17 @@ For example:
 ## My old notes on DOM
 [Click here to go to Hashnode Article on DOM](https://98sunny.hashnode.dev/hands-on-dom-and-selectors-in-javascript-ck47jwg9b026bu4s1z8yjsgnt)
 
+# Throttling and Debouncing
+
+## Debouncing
+1. We dont send out request immediately and we wait till a certain time to make sure some substantial input is given in and then the request is sent immediately.
+
+2. This is a stretgy which is used to improve the performance of a feature by controlling the time at which the function should be executed.
+
+3. Here a function is accepted and transformed into an debounced function so tha the code inside the original functionn is executed after a certain period of time.
+
+4. If the debounced function is called again, then the timer is reset and a new timer starts for this debounced function call. Once that timer completes, the original funuction will kick in.
+
+# Some useful links which I encountered as I was working on DOM:
+[CORS in 6 minutes](https://www.youtube.com/watch?v=PNtFSVU-YTI)
+[JS Throttling](https://www.geeksforgeeks.org/javascript-throttling/)
