@@ -7,19 +7,5 @@ If user number if different from random number by 1, give user 1 point, other wi
 User can decide to play the game as long as possible
 
 */
-const enterNumber = ()=>{
-    return new Promise((resolve, reject)=>{
-        const usrtNumber =Number(window.prompt("Enter a number between 1 and 6: "));
-        const randomNumber =Math.floor(Math.random()*6+1);
-
-        if(isNaN(usrtNumber)){
-            reject(new Error("Wrong input type"));
-        }
-    });
-}
-
-const start=()=>{
-    enterNumber().catch((err)=>{console.log(err);});
-};
-
-start();
+var name = prompt("What is your name?");
+console.log(name);

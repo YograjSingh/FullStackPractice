@@ -1,11 +1,10 @@
 const {Router} =require("express");
 
-const adminMiddleware=require("../middleware/admin");
+const adminMiddleware=require("../jwt/admin");
 const {Admin}=require("../db/index");
 const {Course}=require("../db/index");
 const jwt=require("jsonwebtoken");
-// const JWT_SECRET_KEY = require("..");
-const {JWT_SECRET}=require("../jwt/config");
+const {JWT_SECRET}=require("../config/config");
 const router=Router();
 
 router.post('/signup', (req,res) => {

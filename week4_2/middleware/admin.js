@@ -6,7 +6,7 @@ function adminMiddleware(req,res,next) {
 // We need headers here and validate admin from the admin DB
 const username = req.headers.username;
 const password = req.headers.password;
-const {JWT_SECRET}=require("../");
+const {JWT_SECRET}=require("../config/config");
     Admin.findOne({
     username: username,
     password: password

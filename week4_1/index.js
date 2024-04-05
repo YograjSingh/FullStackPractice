@@ -1,9 +1,9 @@
 const express=require('express');
-const bodyParser=require('body=parser');
+const bodyparser=require('body-parser');
 const app=express();
 
-const adminRouter=require();
-const userRouter=require();
+const adminRouter = require("./routes/admin")
+const userRouter = require("./routes/user");
 
 // middleware for parsing request body
 app.use(bodyparser.json());

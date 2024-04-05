@@ -62,6 +62,7 @@ You need to use mongodb to store all the data persistently.
 .../week4_1> mkdir routes
 .../week4_1> touch index.js
 ```
+
 - Create the required files in the above created directories:
 ```
 .../week4_1> touch index.js
@@ -71,4 +72,79 @@ You need to use mongodb to store all the data persistently.
 ```
 - Add code for main index.js file
 
+### Configuration of Database details
+
+```
+// creating connection to MongoDB
+mongoose.connect("connection string");
+
+// Defining schemas:
+const AdminSchema=new mongoose.Scheme({
+    username: String,
+    password: String
+});
+const UserSchema=new mongoose.Scheme({
+    username: String,
+    password: String,
+    purchasedCourses: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Course'
+    }]
+});
+const CourseSchema=new mongoose.Scheme({
+    title: String,
+    description: String,
+    imageLink: String,
+    price: Number
+});
+
+// Defining Model
+const AdminModel=new mongoose.Model('Admin',AdminSchema);
+const UserModel=new mongoose.Model('User',UserSchema);
+const CourseModel=new mongoose.Model('Course',CourseSchema);
+
+module.exports={
+    AdminModel,
+    UserModel,
+    CourseModel
+};
+
+
+```
+
+### Configuring the Middelware
+Middlware helps in improving the request response flow by authenticating the object, looking up for things in the DB etc. etc.
+and then pass the values to the routes.
+
+```
+const {Admin} =require("../db")
+
+// Middleware for handling authentication
+function adminMiddleware(req,res,next) {
+// Implementing admin aithentication logic
+// We need headers here and validate admin from the admin DB
+const username = req.headers.username;
+const password = req.headers.password;
+Admin.findOne({
+    username: username,
+    password: password
+})
+.then(function(value)
+{
+    if(value){
+        next();
+    }else{
+        res.status(403).json(
+            {msg: "User does not exist."}
+        )
+    }
+});
+
+}
+module.exports = adminMiddleware;
+
+
+
+
+```
 
