@@ -141,3 +141,14 @@ export default App
 
 
 '''
+
+
+## React Keys
+- These are neede for react to understand vcarious contents in an array.
+- Helps it to understand which element to move, update or do something specific in a DOM. 
+- More info: [click here](https://www.geeksforgeeks.org/reactjs-keys/)
+
+Example:
+```
+{todos.map(todo =><Todo key={todo.id} title={todo.title} description={todo.description}></Todo>)}
+```

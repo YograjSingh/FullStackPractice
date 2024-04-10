@@ -16,7 +16,8 @@ function App() {
    <Header title="This is component 3"></Header>
    <Header title="This is component 3"></Header>
    <Header title="This is component 3"></Header>
-   
+
+  
    </div>
   )
 }
