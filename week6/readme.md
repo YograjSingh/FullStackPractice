@@ -152,3 +152,26 @@ Example:
 ```
 {todos.map(todo =><Todo key={todo.id} title={todo.title} description={todo.description}></Todo>)}
 ```
+
+## Wrapper components
+A wrapper component refers to a component that encapsulates another component or elements within it. This encapsulation can serve various purposes such as adding extra functionality, modifying behavior, or simply styling the wrapped content.
+### Use CAse
+1. Styling
+2. Behavior Modification of children
+3. Context management
+4. High order components
+5. Stete manegement
+6. Accessibility enhancement
+
+## Hooks
+Hooks in react are functions which allows us to "hook into" a React state and lifecycle feature from function components
+- useEffect
+- useMemo
+- useCallback
+- useRef
+- useReducer
+- useContext
+- useLayoutEffect
+
+
+   
